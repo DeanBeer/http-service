@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    http_service (0.0.5)
+    NRB_http_service (0.0.5)
       faraday (~> 0.0)
       faraday_middleware-parse_oj (~> 0.0)
       hashie (~> 1.0)
@@ -63,8 +63,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  NRB_http_service!
   guard-rspec (~> 2.0)
-  http_service!
   rake (~> 10.0)
   rb-inotify (~> 0.0)
   rspec (~> 2.0)

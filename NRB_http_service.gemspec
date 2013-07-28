@@ -2,7 +2,7 @@ $:.push File.expand_path('../lib', __FILE__)
 require 'http_service/version'
 
 Gem::Specification.new do |s|
-  s.name          = 'http_service'
+  s.name          = 'NRB_http_service'
   s.summary       = 'HTTP Fetcher Gem based on Faraday'
   s.description   = "Used in some of New Republic Brewing's gems"
 
