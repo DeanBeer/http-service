@@ -1,5 +1,6 @@
 require 'faraday'
 require 'faraday_middleware/parse_oj'
+require 'http_service/version'
 
 module NRB
   class HTTPService
