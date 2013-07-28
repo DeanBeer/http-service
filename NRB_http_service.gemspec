@@ -10,8 +10,6 @@ Gem::Specification.new do |s|
   s.rubyforge_project = 'NRB_http_service'
 
   s.add_dependency 'faraday', '~> 0.0'
-  s.add_dependency 'faraday_middleware-parse_oj', '~> 0.0'
-  s.add_dependency 'hashie', '~> 1.0'
 
   s.add_development_dependency 'guard-rspec', '~> 2.0'
   s.add_development_dependency 'rake', '~> 10.0'

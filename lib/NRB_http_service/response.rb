@@ -13,8 +13,8 @@ module NRB
 
       def initialize(args)
         @status = args[:status]
-        @body = Hashie::Mash.new args[:body]
-        @headers = Hashie::Mash.new args[:headers]
+        @body = args[:body]
+        @headers = args[:headers]
       end
 
 
