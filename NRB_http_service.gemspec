@@ -1,5 +1,5 @@
 $:.push File.expand_path('../lib', __FILE__)
-require 'http_service/version'
+require 'NRB_http_service/version'
 
 Gem::Specification.new do |s|
   s.name          = 'NRB_http_service'
@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.description   = "Used in some of New Republic Brewing's gems"
 
   s.homepage          = 'https://github.com/NewRepublicBrewing/http-service'
-  s.rubyforge_project = 'http_service'
+  s.rubyforge_project = 'NRB_http_service'
 
   s.add_dependency 'faraday', '~> 0.0'
   s.add_dependency 'faraday_middleware-parse_oj', '~> 0.0'
@@ -24,13 +24,13 @@ Gem::Specification.new do |s|
   s.files         = [
                       'LICENSE',
                       'README.md',
-                      'lib/http_service.rb',
-                      'lib/http_service/response.rb',
-                      'lib/http_service/version.rb'
+                      'lib/NRB_http_service.rb',
+                      'lib/NRB_http_service/response.rb',
+                      'lib/NRB_http_service/version.rb'
                     ]
   s.test_files    = [ 
-                      'spec/cases/http_service_spec.rb',
-                      'spec/cases/http_service/response_spec.rb',
+                      'spec/cases/NRB_http_service_spec.rb',
+                      'spec/cases/NRB_http_service/response_spec.rb',
                       'spec/cases/version_spec.rb',
                       'spec/spec_helper.rb'
                     ]

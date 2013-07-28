@@ -1,11 +1,11 @@
 require 'faraday'
 require 'faraday_middleware/parse_oj'
-require 'http_service/version'
+require 'NRB_http_service/version'
 
 module NRB
   class HTTPService
 
-    autoload :Response, 'http_service/response'
+    autoload :Response, 'NRB_http_service/response'
 
     DEFAULT_MIDDLEWARE = Proc.new do |faraday| 
       faraday.adapter Faraday.default_adapter
