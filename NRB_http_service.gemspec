@@ -5,6 +5,7 @@ Gem::Specification.new do |s|
   s.name          = 'NRB_http_service'
   s.summary       = 'HTTP Fetcher Gem based on Faraday'
   s.description   = "Used in some of New Republic Brewing's gems"
+  s.license = 'GPL-3'
 
   s.homepage          = 'https://github.com/NewRepublicBrewing/http-service'
   s.rubyforge_project = 'NRB_http_service'
