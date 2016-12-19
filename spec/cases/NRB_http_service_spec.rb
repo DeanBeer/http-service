@@ -5,11 +5,11 @@ describe NRB::HTTPService do
   describe 'class methods' do
 
     it 'has a default middleware' do
-      NRB::HTTPService.default_middleware.should be_a(Proc)
+      expect(described_class.default_middleware).to be_a(Proc)
     end
 
     it 'has a default response class' do
-      NRB::HTTPService.default_response_class.should eq NRB::HTTPService::Response
+      expect(described_class.default_response_class).to eq NRB::HTTPService::Response
     end
 
   end
@@ -18,25 +18,26 @@ describe NRB::HTTPService do
 
     let(:args)       { {} }
     let(:body)       { {} }
-    let(:connection) { stub "here's a beer", verb => connection_response }
+    let(:connection) { double :connection, verb: connection_response,
+                                           get: connection_response }
     let(:connection_response)   { double "skal", body: body, headers: headers, status: status }
     let(:headers)    { {} }
     let(:path)       { '/' }
-    let(:response)   { NRB::HTTPService.new(path: path, verb: verb).make_request }
+    let(:response)   { described_class.new(path: path, verb: verb).make_request }
     let(:status)     { 200 }
     let(:verb)       { :get }
 
     context 'successful requests' do
 
       before do
-        Faraday.stub(:new).and_return(connection)
+        allow(Faraday).to receive(:new).and_return(connection)
       end
       it 'returns a Response object' do
-        response.should be_a(NRB::HTTPService.default_response_class)
+        expect(response).to be_a described_class.default_response_class
       end
 
       it 'resuces with an successful Response object' do
-        response.should be_success
+        expect(response).to be_success
       end
 
     end
@@ -48,19 +49,19 @@ describe NRB::HTTPService do
       let(:message) { "!Blark!" }
 
       before do
-        Faraday.stub(:new).and_raise(error)
+        allow(Faraday).to receive(:new).and_raise(error)
       end
 
       it 'resuces with a Response object' do
-        response.should be_a(NRB::HTTPService.default_response_class)
+        expect(response).to be_a(described_class.default_response_class)
       end
 
       it 'resuces with an errored Response object' do
-        response.should be_errored
+        expect(response).to be_errored
       end
 
       it 'gives you the error' do
-        response.body[:error].should eq message
+        expect(response.body[:error]).to eq message
       end
 
     end

@@ -12,11 +12,11 @@ describe NRB::HTTPService::Response do
     let(:status) { 200 }
 
     it 'correctly answers errored?' do
-      response.should_not be_errored
+      expect(response).not_to be_errored
     end
 
     it 'correctly answers success?' do
-      response.should be_success
+      expect(response).to be_success
     end
 
   end
@@ -26,11 +26,11 @@ describe NRB::HTTPService::Response do
     let(:status) { 900 }
 
     it 'correctly answers errored?' do
-      response.should be_errored
+      expect(response).to be_errored
     end
 
     it 'correctly answers success?' do
-      response.should_not be_success
+      expect(response).not_to be_success
     end
 
   end
