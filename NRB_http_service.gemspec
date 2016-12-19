@@ -31,7 +31,7 @@ Gem::Specification.new do |s|
   s.test_files    = [ 
                       'spec/cases/NRB_http_service_spec.rb',
                       'spec/cases/NRB_http_service/response_spec.rb',
-                      'spec/cases/version_spec.rb',
+                      'spec/cases/NRB_http_service/version_spec.rb',
                       'spec/spec_helper.rb'
                     ]
   s.require_paths = ['lib']
