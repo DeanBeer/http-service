@@ -19,7 +19,7 @@ module NRB
 
 
       def success?
-        @status >= 200 && @status < 300
+        status >= 200 && status < 300
       end
 
     end

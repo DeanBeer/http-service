@@ -39,21 +39,29 @@ module NRB
 
 
     def make_request
-      connection = self.class.default_http_class.new @url, @connection_opts, &self.class.faraday_middleware
-      response = connection.send @verb, @url, @params
-      args = @args.merge( { body: response.body, headers: response.headers, status: response.status.to_i } )
-      @response_class.new args
+      response = connection.send verb, url, params
+      response_class.new response_args(response)
     rescue Faraday::Error::ParsingError => e
       self.class.default_response_class.new body: {error: e.message}, status: 500
     end
 
   private
 
-    attr_reader :params, :verb, :url
+    attr_reader :args, :connection_opts, :params, :response_class, :verb, :url
+
+    def connection
+      self.class.default_http_class.new url, connection_opts, &self.class.faraday_middleware
+    end
+
 
     def process_args(args)
       return args unless @verb == :post
       args.inject("") { |str,pair| str += "#{pair.first}=#{pair.last}&" }.chop
+    end
+
+
+    def response_args(response)
+      args.merge( { body: response.body, headers: response.headers, status: response.status.to_i } )
     end
 
   end

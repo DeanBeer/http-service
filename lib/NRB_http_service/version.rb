@@ -1,6 +1,6 @@
 module NRB
   class HTTPService
-    VERSION = '0.0.8'
+    VERSION = '0.1.0'
     def self.version; VERSION; end
   end
 end
