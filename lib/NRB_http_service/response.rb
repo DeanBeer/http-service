@@ -15,6 +15,7 @@ module NRB
         @status = args[:status]
         @body = args[:body]
         @headers = args[:headers]
+        freeze
       end
 
 
